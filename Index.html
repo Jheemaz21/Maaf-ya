@@ -13,43 +13,45 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       font-family: 'Poppins', sans-serif;
       color: #fff;
       text-align: center;
+      background: url('Sayang.jpg') no-repeat center center/cover;
+      position: relative;
+      overflow: hidden;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      animation: fadeIn 2s ease-in-out;
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
     }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      animation: fadeIn 3s ease-in-out;
+    h1, p, .btn {
+      position: relative;
+      z-index: 1;
     }
+    h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    p { font-size: 1.2rem; margin-bottom: 20px; }
     .btn {
       padding: 12px 25px;
       border: none;
-      background: #ff4e50;
+      background: #25D366;
       color: white;
       font-size: 1rem;
       border-radius: 30px;
       cursor: pointer;
       transition: 0.3s;
+      text-decoration: none;
     }
-    .btn:hover {
-      background: #fc913a;
-    }
+    .btn:hover { background: #1ebe5c; }
     .heart {
       position: absolute;
       color: red;
       font-size: 20px;
       animation: float 4s linear infinite;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+      z-index: 0;
     }
     @keyframes float {
       0% { transform: translateY(0); opacity: 1; }
@@ -61,7 +63,7 @@
   <h1>Maaf ya Sayang ❤️</h1>
   <p>Aku tahu aku salah. Tolong maafin aku ya...  
      Aku janji bakal lebih baik lagi untukmu 💕</p>
-  <button class="btn" onclick="showLove()">Maafin Aku</button>
+  <a class="btn" href="https://api.whatsapp.com/send?phone=6282335099720&text=" target="_blank">Chat Aku di WhatsApp</a>
 
   <script>
     function showLove() {
@@ -73,10 +75,8 @@
         heart.style.top = window.innerHeight + "px";
         heart.style.fontSize = Math.random() * 30 + 10 + "px";
         document.body.appendChild(heart);
-
         setTimeout(() => { heart.remove(); }, 4000);
       }
-      alert("Makasih udah maafin aku 😘");
     }
   </script>
 </body>
